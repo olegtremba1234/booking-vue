@@ -1,12 +1,14 @@
 <script>
 import Button from "./components/Button.vue";
 import DirectivesTest from "./components/DirectivesTest.vue";
+import StarRating from "./components/StarRating.vue";
 
 export default {
   name: "App",
   components: {
     Button,
     DirectivesTest,
+    StarRating,
   },
   data() {
     return {
@@ -31,5 +33,6 @@ export default {
     <h1>{{ title }}</h1>
     <Button @click="increment">Click me</Button>
     <DirectivesTest />
+    <StarRating :rating="4" />
   </div>
 </template>
