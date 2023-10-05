@@ -1,38 +1,37 @@
 <script>
-import Button from "./components/Button.vue";
-import DirectivesTest from "./components/DirectivesTest.vue";
-import StarRating from "./components/StarRating.vue";
-
+import ApartmentsItem from "./components/apartment/ApartmentsItem.vue";
 export default {
   name: "App",
-  components: {
-    Button,
-    DirectivesTest,
-    StarRating,
-  },
+  components: { ApartmentsItem },
   data() {
     return {
-      amountOfClicks: 0,
+      apartment: {
+        id: "qweqwe",
+        title: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
+        descr: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
+        rating: 4,
+        price: 1000,
+        location: {
+          city: "Kyiv",
+        },
+        owner: {
+          name: "qwe",
+          phone: "000-000-0000",
+          email: "qwe@qwe.com",
+        },
+      },
     };
-  },
-  computed: {
-    title() {
-      return ` ${this.amountOfClicks}`;
-    },
-  },
-  methods: {
-    increment() {
-      this.amountOfClicks += 1;
-    },
   },
 };
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <h1>{{ title }}</h1>
-    <Button @click="increment">Click me</Button>
-    <DirectivesTest />
-    <StarRating :rating="4" />
+    <ApartmentsItem
+      :descr="apartment.descr"
+      :price="apartment.price"
+      :rating="apartment.rating"
+      imgSrc="https://mayak.kiev.ua/sites/mayak.kiev/files/news/taunkhaus.jpg"
+    />
   </div>
 </template>
