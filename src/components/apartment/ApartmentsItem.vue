@@ -45,7 +45,7 @@ export default {
 .apartmentsItem {
   position: relative;
   max-width: 350px;
-  padding: 0 20px;
+  padding: 0 15px;
   &Inner {
     position: relative;
   }
@@ -58,7 +58,7 @@ export default {
     background: rgba(#0f1d2d, 0.7);
     min-height: 200px;
     color: #fff;
-    line-height: 19.5px;
+    line-height: 1.4;
     text-align: left;
     cursor: pointer;
     z-index: 1;
@@ -70,6 +70,8 @@ export default {
 
   &Description {
     margin-bottom: 20px;
+    min-height: calc(1em * 1.4 * 3);
+    overflow: hidden;
   }
 
   &Rating {

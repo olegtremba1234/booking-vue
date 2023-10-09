@@ -1,10 +1,12 @@
 <script>
-import ApartmentsItem from "./components/apartment/ApartmentsItem.vue";
+import ApartmentsList from "./components/apartment/ApartmentsList.vue";
+import apartments from "./components/apartment/apartments";
 export default {
   name: "App",
-  components: { ApartmentsItem },
+  components: { ApartmentsList },
   data() {
     return {
+      apartments,
       apartment: {
         id: "qweqwe",
         title: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
@@ -26,12 +28,14 @@ export default {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center">
-    <ApartmentsItem
-      :descr="apartment.descr"
-      :price="apartment.price"
-      :rating="apartment.rating"
-      imgSrc="https://mayak.kiev.ua/sites/mayak.kiev/files/news/taunkhaus.jpg"
-    />
+  <div class="app">
+    <ApartmentsList :items="apartments" />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.app {
+  margin-top: 60px;
+  text-align: center;
+}
+</style>
