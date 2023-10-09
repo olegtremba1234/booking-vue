@@ -1,15 +1,10 @@
 <template>
   <Container>
+    <slot name="title"></slot>
     <div class="apartmentsList">
-      <ApartmentsItem
-        v-for="{ id, descr, rating, price, imgUrl } in items"
-        :key="id"
-        :descr="descr"
-        :rating="rating"
-        :price="price"
-        :imgSrc="imgUrl"
-        class="apartmentsListItem"
-      />
+      <template v-for="apartment in items">
+        <slot name="apartment" v-bind:apartment="apartment"></slot>
+      </template>
     </div>
   </Container>
 </template>
@@ -37,8 +32,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* margin-left: -15px;
-  margin-right: -15px; */
+  margin-left: -15px;
+  margin-right: -15px;
 
   &Item {
     margin-bottom: 30px;

@@ -1,27 +1,13 @@
 <script>
+import ApartmentsItem from "./components/apartment/ApartmentsItem.vue";
 import ApartmentsList from "./components/apartment/ApartmentsList.vue";
 import apartments from "./components/apartment/apartments";
 export default {
   name: "App",
-  components: { ApartmentsList },
+  components: { ApartmentsList, ApartmentsItem },
   data() {
     return {
       apartments,
-      apartment: {
-        id: "qweqwe",
-        title: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
-        descr: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
-        rating: 4,
-        price: 1000,
-        location: {
-          city: "Kyiv",
-        },
-        owner: {
-          name: "qwe",
-          phone: "000-000-0000",
-          email: "qwe@qwe.com",
-        },
-      },
     };
   },
 };
@@ -29,7 +15,18 @@ export default {
 
 <template>
   <div class="app">
-    <ApartmentsList :items="apartments" />
+    <ApartmentsList :items="apartments">
+      <template v-slot:title>New title</template>
+      <template v-slot:apartment="{ apartment }">
+        <ApartmentsItem
+          :key="apartment.id"
+          :descr="apartment.descr"
+          :rating="apartment.rating"
+          :price="apartment.price"
+          :imgSrc="apartment.imgUrl"
+        />
+      </template>
+    </ApartmentsList>
   </div>
 </template>
 
