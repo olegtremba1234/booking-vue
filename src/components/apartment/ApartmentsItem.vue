@@ -1,4 +1,5 @@
 <template>
+  <!-- <div class="apartmentsItem" @click="log(2, $event)"> -->
   <div class="apartmentsItem">
     <div class="apartmentsItemInner">
       <img :src="imgSrc" alt="" class="apartmentsItemPhoto" />
@@ -8,6 +9,9 @@
           <StarRating :rating="rating" />
         </div>
         <div class="apartmentsItemPrice">UAH {{ price }}</div>
+        <a href="https://www.google.com/" @click.prevent.stop="handleLinkClick"
+          >google</a
+        >
       </div>
     </div>
   </div>
@@ -36,6 +40,15 @@ export default {
     imgSrc: {
       type: String,
       default: "",
+    },
+  },
+  methods: {
+    log(index, event) {
+      console.log(index);
+      console.log(event);
+    },
+    handleLinkClick() {
+      console.log("google clicked");
     },
   },
 };

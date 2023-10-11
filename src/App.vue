@@ -10,6 +10,11 @@ export default {
       apartments,
     };
   },
+  methods: {
+    handleItemClick() {
+      console.log("item clicked");
+    },
+  },
 };
 </script>
 
@@ -24,6 +29,7 @@ export default {
           :rating="apartment.rating"
           :price="apartment.price"
           :imgSrc="apartment.imgUrl"
+          @click="handleItemClick"
         />
       </template>
     </ApartmentsList>
